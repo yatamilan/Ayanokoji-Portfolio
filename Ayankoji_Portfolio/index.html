@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elite Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Background Video */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Text and Button Styling */
+    .home-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      z-index: 1;
+    }
+
+    .home-content h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 3em;
+      text-transform: uppercase;
+      margin: 0;
+      animation: fadeIn 2s ease-in-out, colorCycle 6s infinite ease-in-out;
+      text-shadow: 0 0 8px #3fabff, 0 0 16px #3fabff;
+    }
+
+    .skills-button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      background: transparent;
+      border: 2px solid #e50914;
+      color: #e50914;
+      font-size: 1.1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .skills-button:hover {
+      background: #e50914;
+      color: #fff;
+      box-shadow: 0 0 10px #efef10, 0 0 20px #efef10;
+    }
+
+    .toggle-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .toggle-container button {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.5em;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+
+    .toggle-container button:hover {
+      opacity: 0.7;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes colorCycle {
+      0%   { color: #cccccc; text-shadow: 0 0 8px #cccccc, 0 0 16px #cccccc; }
+      25%  { color: #3fabff; text-shadow: 0 0 8px #3fabff, 0 0 16px #3fabff; }
+      50%  { color: #b355ff; text-shadow: 0 0 8px #b355ff, 0 0 16px #b355ff; }
+      75%  { color: #ff6f61; text-shadow: 0 0 8px #ff6f61, 0 0 16px #ff6f61; }
+      100% { color: #cccccc; text-shadow: 0 0 8px #cccccc, 0 0 16px #cccccc; }
+    }
+
+    @media (max-width: 768px) {
+      .home-content h1 {
+        font-size: 2em;
+      }
+
+      .skills-button {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background Video -->
+  <video class="video-background" autoplay muted loop id="background-video">
+    <source src="assests/Ayanokoji - My Ordinary Life [Edit_AMV] Quick_(720P_HD).mp4" type="video/mp4" />
+    <!-- Fallback message if video doesn't load -->
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Home Content -->
+  <div class="home-content">
+    <h1 class="color-animation">Welcome to the World of the Elites</h1>
+    <a href="about.html">
+      <button class="skills-button">About Me</button>
+    </a>
+  </div>
+
+  <!-- Volume and Dark Mode Toggles -->
+  <div class="toggle-container">
+    <button id="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+    <button id="volume-toggle" onclick="toggleVolume()">🔊</button>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      const darkModeButton = document.getElementById("dark-mode-toggle");
+      darkModeButton.innerText = document.body.classList.contains("dark-mode") ? "🌞" : "🌙";
+    }
+
+    function toggleVolume() {
+      const video = document.getElementById("background-video");
+      const volumeButton = document.getElementById("volume-toggle");
+      video.muted = !video.muted;
+      volumeButton.innerText = video.muted ? "🔇" : "🔊";
+    }
+  </script>
+</body>
+
+</html>

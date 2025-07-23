@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Skills</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Poppins&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: white;
+    }
+
+    .container {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2em;
+      margin-bottom: 30px;
+      color: #f7b800;
+      text-shadow: 0 0 10px #f7b800;
+    }
+
+    .skill-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #3fabff;
+      padding: 25px 20px;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 400px;
+      box-shadow: 0 0 8px #3fabff;
+      transition: transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .skill-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .skill-title {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #e50914;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .skill-description {
+      font-size: 0.95em;
+      margin: 10px 0 15px;
+      color: #ccc;
+    }
+
+    .progress-bar {
+      background: #333;
+      border-radius: 5px;
+      overflow: hidden;
+      height: 10px;
+      margin: 0 auto;
+      width: 80%;
+    }
+
+    .progress-fill {
+      height: 10px;
+      width: 0;
+      background: linear-gradient(to right, #e50914, #f7b800);
+      animation: fillProgress 2s forwards;
+    }
+
+    @keyframes fillProgress {
+      from { width: 0; }
+      to { width: var(--fill); }
+    }
+
+    .back-button {
+      margin-top: 40px;
+      padding: 12px 25px;
+      background: transparent;
+      border: 2px solid #f7b800;
+      color: #f7b800;
+      font-size: 1.1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .back-button:hover {
+      background: #e50914;
+      color: #fff;
+      box-shadow: 0 0 10px #e50914, 0 0 20px #e50914;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>My Elite Skillset</h1>
+
+    <!-- Skill 1 -->
+    <div class="skill-card">
+      <div class="skill-title"><i class="fas fa-code"></i> Web Development</div>
+      <div class="skill-description">HTML, CSS, JavaScript, responsive design, and more.</div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="--fill: 90%;"></div>
+      </div>
+    </div>
+
+    <!-- Skill 2 -->
+    <div class="skill-card">
+      <div class="skill-title"><i class="fas fa-brain"></i> Problem Solving</div>
+      <div class="skill-description">Logical thinking, coding challenges, and strategic planning.</div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="--fill: 85%;"></div>
+      </div>
+    </div>
+
+    <!-- Skill 3 -->
+    <div class="skill-card">
+      <div class="skill-title"><i class="fas fa-book-reader"></i> UPSC Preparation</div>
+      <div class="skill-description">Focused on Indian polity, history, and current affairs.</div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="--fill: 15%;"></div>
+      </div>
+    </div>
+
+    <!-- Projects Button -->
+    <a href="project.html" class="back-button">Projects</a>
+  </div>
+
+  <!-- Fade In Scroll Animation -->
+  <script>
+    const cards = document.querySelectorAll('.skill-card');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
+</body>
+</html>

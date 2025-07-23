@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: no-repeat center center/cover;
+      z-index: -1;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .content-container {
+      position: relative;
+      max-width: 90%;
+      margin: 20% auto;
+      padding: 20px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+    }
+
+    h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+
+    .highlight-red {
+      color: #e50914;
+      font-weight: bold;
+    }
+
+    .highlight-yellow {
+      color: #f7b800;
+      font-weight: bold;
+    }
+
+    .skills-button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      background: transparent;
+      border: 2px solid #e50914;
+      color: #e50914;
+      font-size: 1.1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      text-shadow: 0 0 5px #e50914;
+    }
+
+    .skills-button:hover {
+      background: #efef10;
+      color: #fff;
+      box-shadow: 0 0 10px #e50914, 0 0 20px #e50914;
+    }
+
+    @media (max-width: 768px) {
+      .content-container {
+        margin: 25% 5%;
+        padding: 15px;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Dynamic Background Image -->
+  <div class="background" id="background-image"></div>
+
+  <div class="content-container">
+    <h1>Just a student... or something more?</h1>
+
+    <p>I’m the type of person who watches anime and <span class="highlight-yellow">animal reels</span> with a smile, but flips into <span class="highlight-red">rage mode</span> when hungry 😤.</p>
+
+    <p>I love learning new things every day, especially when they catch my <span class="highlight-red">curiosity</span> 🤓.</p>
+
+    <p>I'm <span class="highlight-yellow">humble</span> — until someone tests my <span class="highlight-red">patience</span> 😌.</p>
+
+    <p>Even though I act smart, sometimes I go full <span class="highlight-yellow">💡bulb mode</span>.</p>
+
+    <p>I'm a pro at <span class="highlight-red">lying</span> (for fun!) and handling situations like a <span class="highlight-yellow">boss</span> 😎.</p>
+
+    <p>I don’t show <span class="highlight-yellow">love</span> easily, but I care <span class="highlight-red">deeply</span> and genuinely ❤️.</p>
+
+    <p>A little <span class="highlight-red">lazy</span>, but always the <span class="highlight-yellow">mastermind</span> — the birthday planner 🎂, the game strategist 🎮, the love card designer 💌.</p>
+
+    <p>And yes... I'm happily <span class="highlight-red">SINGLE</span> 😎.</p>
+
+    <p>Once I like something, I will like it <span class="highlight-yellow">forever</span>. If I like a song, I will hear it more than 100 times in a single day.</p>
+
+    <p>If I get <span class="highlight-red">ignored</span> or someone doesn't like me, I won’t talk to them, even if they do everything right. Once my trust is gone, it’s <span class="highlight-yellow">gone</span>.</p>
+
+    <p>🏆 I’m the one who writes all the letters for my squad — from <span class="highlight-red">apology notes</span> 📝 to <span class="highlight-yellow">dramatic leave letters</span> 🏖️!</p>
+
+    <a href="skills.html">
+      <button class="skills-button">Go to Skills Page</button>
+    </a>
+  </div>
+
+  <script>
+    // Set background based on screen size
+    window.addEventListener("load", () => {
+      const bgDiv = document.getElementById("background-image");
+      const isMobile = window.innerWidth <= 768;
+
+      const laptopImage = "assests/about.jpg";  // Change to your actual image path
+      const mobileImage = "assests/about.jpg";  // Change to your actual image path
+
+      bgDiv.style.backgroundImage = `url('${isMobile ? mobileImage : laptopImage}')`;
+    });
+  </script>
+</body>
+</html>
